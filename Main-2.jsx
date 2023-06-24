@@ -52,7 +52,7 @@ const Sliders = ({
 }) => {
   return (
     <View style={{ marginTop: 10 }}>
-      <Text style={{ textAlign: "center" }}>Contrast</Text>
+    <Text style={{ textAlign: "center" }}>Saturation {saturation}</Text>
       <Slider
         style={{
           width: 350,
@@ -60,8 +60,25 @@ const Sliders = ({
           marginHorizontal: 40,
           marginVertical: 10,
         }}
-        minimumValue={-10}
-        step={2}
+        minimumValue={1}
+        step={1}
+        value={saturation}
+        maximumValue={10}
+        onValueChange={(value) => setSaturation(value)}
+        minimumTrackTintColor="#FFFFFF"
+        maximumTrackTintColor="#000000"
+      />
+      <Text style={{ textAlign: "center" }}>Contrast</Text>
+      <Slider
+        style={{
+          width: 350,
+          height: 40,
+          marginHorizontal: 30,
+          marginVertical: 10,
+          shadowColor: 'green',
+        }}
+        minimumValue={0}
+        step={1}
         value={contrast}
         maximumValue={10}
         onValueChange={(value) => setContrast(value)}
@@ -76,30 +93,15 @@ const Sliders = ({
           marginHorizontal: 40,
           marginVertical: 10,
         }}
-        step={2}
-        minimumValue={-10}
+        step={1}
+        minimumValue={0}
         value={brightness}
         maximumValue={10}
         onValueChange={(value) => setBrightness(value)}
         minimumTrackTintColor="#FFFFFF"
         maximumTrackTintColor="#000000"
       />
-      {/* <Text style={{ textAlign: "center" }}>Saturation {saturation}</Text>
-      <Slider
-        style={{
-          width: 300,
-          height: 40,
-          marginHorizontal: 40,
-          marginVertical: 10,
-        }}
-        minimumValue={1}
-        step={1}
-        value={saturation}
-        maximumValue={10}
-        onValueChange={(value) => setSaturation(value)}
-        minimumTrackTintColor="#FFFFFF"
-        maximumTrackTintColor="#000000"
-      /> */}
+
     </View>
   );
 };
@@ -126,17 +128,7 @@ const Home = ({ route }) => {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Sliders
-            contrast={contrast}
-            setContrast={setContrast}
-            brightness={brightness}
-            setBrightness={setBrightness}
-            saturation={saturation}
-            setSaturation={setSaturation}
-      />
-      <View>
-          <Button title="Choose Photo" onPress={_downloadImage} />
-      </View>
+
       <ScrollView>
         <View>
            <View>
@@ -155,6 +147,17 @@ const Home = ({ route }) => {
           </View>
         </View> 
       </ScrollView>
+      <Sliders
+            contrast={contrast}
+            setContrast={setContrast}
+            brightness={brightness}
+            setBrightness={setBrightness}
+            saturation={saturation}
+            setSaturation={setSaturation}
+      />
+      <View>
+          <Button title="Choose Photo" onPress={_downloadImage} width={'100px'} />
+      </View>
     </GestureHandlerRootView>
   );
 };

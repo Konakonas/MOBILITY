@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { AppRegistry, BackHandler, Alert, Button, View, StyleSheet } from 'react-native';
-import Home from './Main-4';
+import Home from './Main-2';
 // import PictureEditor from './Editor'
 
 const App = () => {

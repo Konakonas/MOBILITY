@@ -87,7 +87,7 @@ const Sliders = ({
       <Text style={{ textAlign: "center" }}>Saturation {saturation}</Text>
       <Slider
         style={{
-          width: 300,
+          width: 250,
           height: 40,
           marginHorizontal: 40,
           marginVertical: 10,
